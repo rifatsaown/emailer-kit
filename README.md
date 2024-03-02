@@ -30,7 +30,11 @@ yarn add emailer-kit
 
 ## Configuration
 
+<<<<<<< HEAD
 emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables or by passing an object to the `emailer` function.
+=======
+emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables
+>>>>>>> 4c1d82526646e52293ce120f3a028669ff2ecbed
 
 ### Environment Variables
 
