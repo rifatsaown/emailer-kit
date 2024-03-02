@@ -1,0 +1,39 @@
+{
+  "name": "emailer-kit",
+  "description": "emailer-kit is a versatile and easy-to-use Node.js utility that simplifies email sending using Nodemailer. With a streamlined interface, it provides a set of functions to effortlessly send HTML emails, making it an ideal toolkit for integrating email functionality into your applications.",
+  "keywords": [
+    "nodemailer",
+    "email",
+    "utility",
+    "mailer",
+    "email-sending",
+    "email-utility",
+    "emailer-kit"
+  ],
+  "version": "0.0.2",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rifatsaown/emailer-kit.git"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "jest"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@types/nodemailer": "^6.4.14",
+    "dotenv": "^16.4.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
+}
