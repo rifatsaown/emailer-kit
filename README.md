@@ -2,6 +2,12 @@
 
 emailer-kit is a Node.js utility for simplifying email sending using Nodemailer. It provides a streamlined interface to easily send HTML emails with Nodemailer configurations.
 
+[![NPM](https://nodei.co/npm/emailer-kit.png)](https://nodei.co/npm/emailer-kit/)
+
+[![NPM](https://img.shields.io/npm/v/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
+[![NPM](https://img.shields.io/npm/l/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
+[![NPM](https://img.shields.io/npm/types/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
+
 ## Features
 
 - 📧 Send HTML emails effortlessly
@@ -10,6 +16,7 @@ emailer-kit is a Node.js utility for simplifying email sending using Nodemailer.
 - 📦 Lightweight and easy to use
 - 📚 Supports both es6 modules and commonjs
 - 📜 Written in TypeScript
+- 🗃️ Coming soon: Support for attachments
 
 ## Installation
 
@@ -42,7 +49,7 @@ NOTE : If you are using gmail, you need app password. You can create an app pass
 ```javascript
 import { sendEmail } from "emailer-kit";
 
-// if you are not using commonjs then use require instead of import as shown below 
+// if you are not using commonjs then use require instead of import as shown below
 // const { sendEmail } = require("emailer-kit");
 
 async function sendTestEmail() {
