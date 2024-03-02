@@ -11,23 +11,20 @@ describe('emailer-kit', () => {
 
     expect(info).toBeDefined();
     expect(info.response);
-    expect(info.response.includes('250')).toBe(true);});
-
-    it('should throw an error if required environment variables are missing', async () => {
-    process.env.NODEMAIL_SERVICE = '';
-    process.env.NODEMAIL_EMAIL = '';
-    process.env.NODEMAIL_PASSWORD = '';
-    await expect(sendEmail(' ', ' ', ' ')).rejects.toThrow();
+    expect(info.response.includes('250')).toBe(true);
     });
 
     it('should throw an error if the email is invalid', async () => {
-    process.env.NODEMAIL_SERVICE = 'email-service-provider';
-    process.env.NODEMAIL_EMAIL = 'exampl@email.com';
-    process.env.NODEMAIL_PASSWORD = 'password';
-
-    const email = 'invalid-email';
-    const subject = 'Test Subject';
-    const htmlContent = '<p>This is a test email.</p>';
-    await expect(sendEmail(email, subject, htmlContent)).rejects.toThrow();
+        const email = 'invalid-email';
+        const subject = 'Test Subject';
+        const htmlContent = '<p>This is a test email.</p>';
+        await expect(sendEmail(email, subject, htmlContent)).rejects.toThrow();
     })
+
+    it('should throw an error if required environment variables are missing', async () => {
+        process.env.NODEMAIL_SERVICE = '';
+        process.env.NODEMAIL_EMAIL = '';
+        process.env.NODEMAIL_PASSWORD = '';
+        await expect(sendEmail(' ', ' ', ' ')).rejects.toThrow();
+    });
 });
