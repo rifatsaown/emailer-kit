@@ -30,11 +30,7 @@ yarn add emailer-kit
 
 ## Configuration
 
-<<<<<<< HEAD
-emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables or by passing an object to the `emailer` function.
-=======
 emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables
->>>>>>> 4c1d82526646e52293ce120f3a028669ff2ecbed
 
 ### Environment Variables
 
@@ -71,3 +67,22 @@ async function sendTestEmail() {
 
 sendTestEmail();
 ```
+
+
+
+<!-- Contributor are welcome -->
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
+
+## Author
+
+👤 **Md Rifat Hossen Saown**
+- Website: [rifatsaown.netlify.app](https://rifatsaown.netlify.app/)
+- Github: [@rifatsaown](https://github.com/rifatsaown)
+- LinkedIn: [Md Rifat Hossen Saown](https://www.linkedin.com/in/rifatsaown/)
+- Facebook: [Md Rifat Hossen Saown](https://www.facebook.com/rifatsaown0)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
