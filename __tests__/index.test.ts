@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { sendEmail } from '../src/index';
+import { emailer } from '../src/index';
 
 describe('emailer-kit', () => {
     it('should send an email', async () => {
@@ -7,7 +7,7 @@ describe('emailer-kit', () => {
     const subject = 'Test Subject';
     const htmlContent = '<p>This is a test email.</p>';
 
-    const info = await sendEmail(email, subject, htmlContent);
+    const info = await emailer(email, subject, htmlContent);
 
     expect(info).toBeDefined();
     expect(info.response);
@@ -18,13 +18,13 @@ describe('emailer-kit', () => {
         const email = 'invalid-email';
         const subject = 'Test Subject';
         const htmlContent = '<p>This is a test email.</p>';
-        await expect(sendEmail(email, subject, htmlContent)).rejects.toThrow();
+        await expect(emailer(email, subject, htmlContent)).rejects.toThrow();
     })
 
     it('should throw an error if required environment variables are missing', async () => {
         process.env.NODEMAIL_SERVICE = '';
         process.env.NODEMAIL_EMAIL = '';
         process.env.NODEMAIL_PASSWORD = '';
-        await expect(sendEmail(' ', ' ', ' ')).rejects.toThrow();
+        await expect(emailer(' ', ' ', ' ')).rejects.toThrow();
     });
 });

@@ -1,4 +1,4 @@
-import nodemailer, { Transporter, SendMailOptions, SentMessageInfo } from "nodemailer";
+import nodemailer, { SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
 
 // Configuration interface for Nodemailer
 interface MailerConfig {
@@ -39,7 +39,7 @@ const createTransporter = (): Transporter => {
 };
 
 // Function to send an email using the configured transporter
-const sendEmail = async (email: string, subject: string, htmlContent: string): Promise<SentMessageInfo> => {
+const emailer = async (email: string, subject: string, htmlContent: string): Promise<SentMessageInfo> => {
     // validate email address
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(email)) {
@@ -74,4 +74,5 @@ const sendEmail = async (email: string, subject: string, htmlContent: string): P
 };
 
 // Export the function for external use
-export { sendEmail };
+export { emailer };
+
