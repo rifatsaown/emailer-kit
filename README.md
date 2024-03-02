@@ -39,6 +39,9 @@ NOTE : If you are using gmail, you need app password. You can create an app pass
 ```javascript
 import { sendEmail } from "emailer-kit";
 
+// if you are not using es6 modules then use require instead of import as shown below 
+// const { sendEmail } = require("emailer-kit");
+
 async function sendTestEmail() {
   const email = "email@example.com";
   const subject = "Test Subject";
