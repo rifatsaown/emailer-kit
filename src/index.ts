@@ -74,4 +74,4 @@ const sendEmail = async (email: string, subject: string, htmlContent: string): P
 };
 
 // Export the function for external use
-export { sendEmail };
+export default sendEmail;

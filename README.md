@@ -30,7 +30,7 @@ yarn add emailer-kit
 
 ## Configuration
 
-emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables or by passing an object to the `sendEmail` function.
+emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables
 
 ### Environment Variables
 
@@ -47,10 +47,10 @@ NOTE : If you are using gmail, you need app password. You can create an app pass
 ## Usage
 
 ```javascript
-import { sendEmail } from "emailer-kit";
+import emailer from "emailer-kit";
 
 // if you are not using commonjs then use require instead of import as shown below
-// const { sendEmail } = require("emailer-kit");
+// const emailer = require("emailer-kit");
 
 async function sendTestEmail() {
   const email = "email@example.com";
@@ -58,7 +58,7 @@ async function sendTestEmail() {
   const htmlContent = "<p>This is a test email.</p>";
 
   try {
-    const info = await sendEmail(email, subject, htmlContent);
+    const info = await emailer(email, subject, htmlContent);
     console.log("Email sent:", info.response);
   } catch (error) {
     console.error("Error sending email:", error);
