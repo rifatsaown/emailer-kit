@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true, 
+    "strictNullChecks": true,
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+  },
+  "include": ["src", "dist/index.d.ts"],
+  "exclude": ["node_modules", "dist" , "__tests__"]
+}
