@@ -1,24 +1,23 @@
 # emailer-kit
 
-emailer-kit is a Node.js utility for simplifying email sending using Nodemailer. It provides a streamlined interface to easily send HTML emails with Nodemailer configurations.
+**emailer-kit** is a Node.js utility that simplifies email sending using Nodemailer. It provides an easy-to-use interface for sending HTML emails with various configurations.
 
 [![NPM](https://nodei.co/npm/emailer-kit.png)](https://nodei.co/npm/emailer-kit/)
-
 [![NPM](https://img.shields.io/npm/v/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
 [![NPM](https://img.shields.io/npm/l/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
 [![NPM](https://img.shields.io/npm/types/emailer-kit)](https://www.npmjs.com/package/emailer-kit)
 
-## Features
+## ✨ Features
 
-- 📧 Send HTML emails effortlessly
-- 🌐 Compatible with various email service providers
-- 🛠️ Simplifies Nodemailer configuration
-- 📦 Lightweight and easy to use
-- 📚 Supports both es6 modules and commonjs
-- 📜 Written in TypeScript
-- 🗃️ Coming soon: Support for attachments
+- 📧 **Effortlessly Send HTML Emails**
+- 🌐 **Compatible with Various Email Service Providers**
+- 🛠️ **Simplifies Nodemailer Configuration**
+- 📦 **Lightweight and Easy to Use**
+- 📚 **Supports ES6 Modules and CommonJS**
+- 📜 **Written in TypeScript**
+- 🗃️ **Support for Attachments (New)**
 
-## Installation
+## 📦 Installation
 
 ```bash
 npm install emailer-kit
@@ -28,37 +27,44 @@ npm install emailer-kit
 yarn add emailer-kit
 ```
 
-## Configuration
+## ⚙️ Configuration
 
-emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting environment variables
+emailer-kit uses Nodemailer to send emails. You can configure Nodemailer by setting the following environment variables.
 
 ### Environment Variables
 
-Create a `.env` file in the root of your project and add the following environment variables:
+Create a `.env` file in the root of your project and add:
 
 ```env
-NODEMAIL_SERVICE= [email service provider e.g. 'outlook' or 'gmail' or 'yahoo' etc.]
-NODEMAIL_EMAIL= [your email address]
-NODEMAIL_PASSWORD= [your email password]
+NODEMAIL_SERVICE=[email service provider, e.g., 'outlook', 'gmail', 'yahoo', etc.]
+NODEMAIL_EMAIL=[your email address]
+NODEMAIL_PASSWORD=[your email password]
 ```
 
-NOTE : If you are using gmail, you need app password. You can create an app password by going to your Google account settings and then to the security tab.
+> **Note:** If you are using Gmail, you need an app password. You can create an app password in your Google account settings under the security tab.
 
-## Usage
+## 🚀 Usage
 
 ```javascript
 import { emailer } from "emailer-kit";
 
-// if you are not using commonjs then use require instead of import as shown below
+// For CommonJS
 // const { emailer } = require("emailer-kit");
 
 async function sendTestEmail() {
-  const email = "email@example.com";
-  const subject = "Test Subject";
-  const htmlContent = "<p>This is a test email.</p>";
+  // emailerOptions is an object that contains the email options
+  const emailerOptions = {
+    email: "email@example.com",
+    subject: "Test Subject",
+    htmlContent: "<p>This is a test email.</p>",
+    file: { // Attachment is optional
+      path: "path/to/your/file.pdf",
+      name: "file.pdf" // Name is optional
+    }
+  };
 
   try {
-    const info = await emailer(email, subject, htmlContent);
+    const info = await emailer(emailerOptions);
     console.log("Email sent:", info.response);
   } catch (error) {
     console.error("Error sending email:", error);
@@ -68,21 +74,19 @@ async function sendTestEmail() {
 sendTestEmail();
 ```
 
+## 🤝 Contributing
 
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change. Make sure to update tests as appropriate.
 
-<!-- Contributor are welcome -->
-## Contributing
+## 👤 Author
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
+**Md Rifat Hossen Saown**
 
-## Author
-
-👤 **Md Rifat Hossen Saown**
 - Website: [rifatsaown.netlify.app](https://rifatsaown.netlify.app/)
-- Github: [@rifatsaown](https://github.com/rifatsaown)
+- GitHub: [@rifatsaown](https://github.com/rifatsaown)
 - LinkedIn: [Md Rifat Hossen Saown](https://www.linkedin.com/in/rifatsaown/)
 - Facebook: [Md Rifat Hossen Saown](https://www.facebook.com/rifatsaown0)
 
-## Show your support
+## ⭐️ Show Your Support
 
 Give a ⭐️ if this project helped you!

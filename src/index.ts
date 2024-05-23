@@ -10,13 +10,21 @@ interface MailerConfig {
 }
 
 // Function to validate the presence of required environment variables
-const validateEnvVariables = () => {
+const validateEnvVariables = (): void => {
   const requiredEnvVariables = ["NODEMAIL_SERVICE", "NODEMAIL_EMAIL", "NODEMAIL_PASSWORD"];
 
   for (const variable of requiredEnvVariables) {
     if (!process.env[variable]) {
       throw new Error(`Missing required environment variable: ${variable}`);
     }
+  }
+};
+
+// Function to validate email address format
+const validateEmailAddress = (email: string): void => {
+  const emailRegex = /\S+@\S+\.\S+/;
+  if (!emailRegex.test(email)) {
+    throw new Error("Invalid email address");
   }
 };
 
@@ -38,13 +46,22 @@ const createTransporter = (): Transporter => {
   return nodemailer.createTransport(config);
 };
 
+interface IEmailerOptions {
+  email: string;
+  subject: string;
+  htmlContent: string;
+  file?: {
+    path: string;
+    name?: string;
+  };
+}
+
 // Function to send an email using the configured transporter
-const emailer = async (email: string, subject: string, htmlContent: string): Promise<SentMessageInfo> => {
-    // validate email address
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(email)) {
-    throw new Error("Invalid email address");
-    }
+const emailer = async (emailerOptions: IEmailerOptions): Promise<SentMessageInfo> => {
+  const { email, subject, htmlContent, file } = emailerOptions;
+
+  // Validate email address
+  validateEmailAddress(email);
 
   try {
     // Create a Nodemailer transporter instance
@@ -56,6 +73,7 @@ const emailer = async (email: string, subject: string, htmlContent: string): Pro
       to: email,
       subject,
       html: htmlContent,
+      attachments: file ? [{ path: file.path, filename: file.name }] : undefined,
     };
 
     // Send the email and await the result
@@ -66,10 +84,10 @@ const emailer = async (email: string, subject: string, htmlContent: string): Pro
 
     // Return information about the sent email
     return info;
-  } catch (e) {
+  } catch (error) {
     // Log and re-throw the original error for better debugging
-    console.error("Error sending email:", e);
-    throw e;
+    console.error("Error sending email:", error);
+    throw error;
   }
 };
 
