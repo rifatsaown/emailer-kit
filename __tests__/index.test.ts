@@ -4,9 +4,9 @@ describe('emailer-kit', () => {
 
   beforeEach(() => {
     // Set up necessary environment variables for each test
-    process.env.NODEMAIL_SERVICE = 'outlook'; // Replace with actual service for testing
-    process.env.NODEMAIL_EMAIL = 'rifatsa0wn@outlook.com'; // Replace with actual email for testing
-    process.env.NODEMAIL_PASSWORD = 'Tintin10'; // Replace with actual password for testing
+    process.env.NODEMAIL_SERVICE = ''; // Replace with actual service for testing
+    process.env.NODEMAIL_EMAIL = ''; // Replace with actual email for testing
+    process.env.NODEMAIL_PASSWORD = ''; // Replace with actual password for testing
   });
 
   afterEach(() => {
